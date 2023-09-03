@@ -1,7 +1,14 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 body {
     color: #fff;
     background-color: #000;
     font-family: 'Lato', sans-serif;
+    width:100%;
 }
 
 h1 {
@@ -41,4 +48,27 @@ span {
 #collection {
     color: #308d46;
     font-weight: 600;
+}
+
+@media screen and (max-width:400px) {
+    input {
+        width: 120px;
+    }
+    span {
+        min-width: 120px;
+        font-size: 12px;
+    }
+    form {
+        width: 98%;
+    }
+    label {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    img {
+        width: 200px
+    }
 }
