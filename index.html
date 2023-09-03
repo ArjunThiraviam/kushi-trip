@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>
+      <img
+        src="kushi-taxi-logo.jpg"
+        alt="Kushi Taxi Fare Calculator"
+        srcset=""
+      />
+    </h1>
+    <form action="">
+      <label for="startingKm"
+        ><span>Starting Km</span>
+        <input id="startingKm" type="text" autocomplete="off"
+      /></label>
+      <label for="endingKm"
+        ><span>Ending Km </span
+        ><input id="endingKm" type="text" autocomplete="off"
+      /></label>
+      <label for="totalKm"
+        ><span>Total Km </span
+        ><input id="totalKm" type="text" autocomplete="off"
+      /></label>
+      <label for="perKm"
+        ><span>Per Km </span><input id="perKm" type="text" autocomplete="off"
+      /></label>
+      <label for="bata"
+        ><span>Bata </span><input id="bata" type="text" autocomplete="off"
+      /></label>
+      <label for="disel"
+        ><span>Disel </span><input id="disel" type="text" autocomplete="off"
+      /></label>
+      <label for="toll"
+        ><span>Toll </span><input id="toll" type="text" autocomplete="off"
+      /></label>
+      <label for="others"
+        ><span>Other Charges </span
+        ><input id="others" type="text" autocomplete="off"
+      /></label>
+      <label for="total"
+        ><span>Total Amount </span
+        ><input id="total" type="text" autocomplete="off"
+      /></label>
+      <label for="collection"
+        ><span>Collection Amount </span
+        ><input id="collection" type="text" autocomplete="off"
+      /></label>
+    </form>
+
+    <script>
+      const options = {
+        style: "decimal",
+        currency: "INR",
+        useGrouping: true,
+        maximumFractionDigits: 2,
+        numberingSystem: "latn",
+      };
+
+      $("#totalKm").click(function () {
+        $("#totalKm").val(
+          ($("#endingKm ").val() - $("#startingKm").val()).toLocaleString(
+            "en-IN",
+            options
+          )
+        );
+      });
+
+      $("#total").click(function () {
+        $("#total").val(
+          Number($("#totalKm").val() * $("#perKm ").val()) +
+            Number($("#bata").val()) +
+            Number($("#toll").val()) +
+            Number($("#others").val())
+        );
+      });
+
+      $("#collection").click(function () {
+        $("#collection").val($("#total ").val() - $("#disel").val());
+      });
+    </script>
+  </body>
+</html>
